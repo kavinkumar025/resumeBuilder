@@ -1,0 +1,29 @@
+/* Utilities: layout, spacing, display */
+
+.container { width: min(1200px, 92vw); margin-inline: auto; }
+
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.gap-8 { gap: var(--space-2); }
+.gap-12 { gap: var(--space-3); }
+.gap-16 { gap: var(--space-4); }
+.gap-24 { gap: var(--space-6); }
+.p-16 { padding: var(--space-4); }
+.p-24 { padding: var(--space-6); }
+.px-16 { padding-inline: var(--space-4); }
+.py-16 { padding-block: var(--space-4); }
+.mt-16 { margin-top: var(--space-4); }
+.mb-16 { margin-bottom: var(--space-4); }
+.rounded { border-radius: var(--radius-md); }
+.shadow { box-shadow: var(--shadow-md); }
+.border { border: 1px solid var(--border); }
+.full { width: 100%; }
+
+/* Center a section */
+.page-center { min-height: calc(100dvh - 64px); display: grid; place-items: center; padding: 24px; }

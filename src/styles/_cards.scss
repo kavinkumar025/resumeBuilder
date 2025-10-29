@@ -1,0 +1,12 @@
+/* Card primitives */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.card-title { font-size: var(--text-xl); font-weight: 700; }
+.card-subtitle { color: var(--text-muted); font-size: var(--text-sm); }

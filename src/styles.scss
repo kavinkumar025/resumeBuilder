@@ -1,15 +1,22 @@
-/* Global theme and layout styles */
+/* Global theme, tokens, and utilities */
 
-/* 1) Angular Material Theme (M3 API) */
+/* 1) Imports must come first */
 @use '@angular/material' as mat;
+@use 'styles/variables';
+@use 'styles/mixins';
+@use 'styles/reset';
+@use 'styles/typography';
+@use 'styles/utilities';
+@use 'styles/buttons';
+@use 'styles/forms';
+@use 'styles/cards';
 
-/* Load Material core styles once */
+/* 2) Material core and themes */
 @include mat.core();
 
-/* Define a clean, modern light theme */
-$app-theme: mat.define-theme((
+/* Define light and dark themes */
+$light-theme: mat.define-theme((
 	color: (
-		/* Use defaults for Material 3 palettes; just pick a light scheme */
 		theme-type: light,
 	),
 	density: (
@@ -17,50 +24,42 @@ $app-theme: mat.define-theme((
 	),
 ));
 
+$dark-theme: mat.define-theme((
+	color: (
+		theme-type: dark,
+	),
+	density: (
+		scale: 0,
+	),
+));
+
+/* Apply full theme by default */
 :root {
-	/* Apply tokens and component styles to the whole app */
-	@include mat.core-theme($app-theme);
-	@include mat.all-component-themes($app-theme);
+	@include mat.core-theme($light-theme);
+	@include mat.all-component-themes($light-theme);
 }
 
-/* 2) Base typography and page layout helpers */
-html, body {
-	height: 100%;
+/* When dark is active, only swap colors (keep density/typography stable) */
+:root[data-theme='dark'] {
+	@include mat.core-color($dark-theme);
+	@include mat.all-component-colors($dark-theme);
 }
+
+/* 3) Base layout helpers (small global additions) */
+html, body { height: 100%; }
 body {
 	margin: 0;
 	font-family: Inter, Roboto, 'Helvetica Neue', Arial, system-ui, -apple-system, sans-serif;
-	background: linear-gradient(180deg, #fafafa 0%, #ffffff 40%);
-	color: #1f2937;
+	background: linear-gradient(180deg, var(--bg-surface) 0%, var(--bg) 40%);
+	color: var(--text);
 }
 
-/* Utility: center a page section nicely */
-.page-center {
-	min-height: calc(100dvh - 64px);
-	display: grid;
-	place-items: center;
-	padding: 24px;
-}
-
-/* Utility: card sizing for auth and forms */
-.elevated-card {
-	width: min(560px, 92vw);
-	padding: 8px 0 16px;
-}
-
-/* Form helpers */
-.full { width: 100%; }
-.gap-16 { display: grid; gap: 16px; }
+/* Container */
+.container { width: min(1200px, 92vw); margin-inline: auto; }
 
 /* Toolbar tweaks */
-.mat-toolbar.mat-primary {
-	position: sticky;
-	top: 0;
-	z-index: 100;
-}
+.mat-toolbar.mat-primary { position: sticky; top: 0; z-index: 100; }
 
 /* Sidenav content spacing */
-.content {
-	padding: 16px;
-}
+.content { padding: 16px; }
 

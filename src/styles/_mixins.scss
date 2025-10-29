@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use './variables' as *;
+
+/* Media query mixin */
+@mixin up($break) {
+  $value: map.get($breakpoints, $break);
+  @if $value == null { @error 'Unknown breakpoint: #{$break}'; }
+  @media (min-width: $value) { @content; }
+}
+
+/* Truncate text */
+@mixin truncate($lines: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Card surface */
+@mixin surface($elevation: md) {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: if($elevation == sm, var(--shadow-sm), if($elevation == lg, var(--shadow-lg), var(--shadow-md)));
+}

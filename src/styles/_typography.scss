@@ -1,0 +1,23 @@
+/* Typography scale */
+:root {
+  --font-sans: Inter, Roboto, 'Helvetica Neue', Arial, system-ui, -apple-system, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+}
+
+body { font-family: var(--font-sans); font-size: var(--text-md); line-height: 1.6; }
+
+h1, h2, h3, h4 { color: var(--text); margin: 0 0 8px; font-weight: 700; }
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+
+.text-muted { color: var(--text-muted); }
