@@ -2,6 +2,34 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.1.
 
+## UI Flow Diagram
+
+The end-to-end navigation map for the 13 main screens lives in `docs/ui-flow.md`.
+
+GitHub renders Mermaid diagrams inline. Quick view:
+
+```mermaid
+flowchart TD
+	L([Landing / Home]) -->|CTA| LG[Login]
+	L --> PRC[Pricing]
+	LG --> D[Dashboard]
+	D --> RI[Resume - AI Input]
+	D --> CLG[Cover Letter - Generate]
+	D --> JS[Jobs - Search]
+	JS --> JR[Results] --> JD[Detail /jobs/:id]
+	D --> JT[Application Tracker]
+	D --> PF[Profile]
+	D --> ST[Settings]
+	D --> HELP[Help]
+	AL[Admin Login] --> AU[Admin Users]
+```
+
+For the full flow with all nodes and notes, open: `docs/ui-flow.md`.
+
+## Component Breakdown
+
+Detailed per-screen component/service/guard diagrams are available in `docs/component-breakdown.md`.
+
 ## Development server
 
 To start a local development server, run:
