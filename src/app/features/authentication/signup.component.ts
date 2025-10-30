@@ -13,27 +13,8 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'app-signup',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSnackBarModule],
-  template: `
-    <mat-card>
-      <h1>Create Account</h1>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" required />
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Password</mat-label>
-          <input matInput type="password" formControlName="password" required />
-        </mat-form-field>
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Confirm Password</mat-label>
-          <input matInput type="password" formControlName="confirm" required />
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Create account</button>
-      </form>
-    </mat-card>
-  `,
-  styles: [`.full-width{width:100%;max-width:420px;display:block}`]
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent {
   form!: FormGroup;

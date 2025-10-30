@@ -1,0 +1,31 @@
+<section class="container pricing">
+  <header class="header">
+    <h1>Simple pricing</h1>
+    <p class="sub">Choose a plan that grows with your career.</p>
+  </header>
+  <div class="plans">
+    <mat-card class="plan">
+      <h2>Free</h2>
+      <div class="price">₹0</div>
+      <ul class="features">
+        <li><mat-icon>check</mat-icon> Basic templates</li>
+        <li><mat-icon>check</mat-icon> 1 AI resume/month</li>
+        <li class="muted"><mat-icon>close</mat-icon> PDF exports</li>
+      </ul>
+      <button mat-stroked-button>Get Started</button>
+    </mat-card>
+
+    <mat-card class="plan popular" appearance="outlined">
+      <div class="badge">Popular</div>
+      <h2>Premium</h2>
+      <div class="price">₹199<span class="period">/mo</span></div>
+      <ul class="features">
+        <li><mat-icon>check</mat-icon> Unlimited AI generation</li>
+        <li><mat-icon>check</mat-icon> All templates</li>
+        <li><mat-icon>check</mat-icon> PDF exports</li>
+        <li><mat-icon>check</mat-icon> Smart analytics</li>
+      </ul>
+      <button mat-raised-button color="primary" (click)="upgrade(199)">Upgrade</button>
+    </mat-card>
+  </div>
+</section>

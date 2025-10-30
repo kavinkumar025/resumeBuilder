@@ -1,0 +1,14 @@
+.hero { padding: 56px 24px; text-align: center; background: radial-gradient(60% 60% at 50% 30%, #eef2ff 0%, #ffffff 60%); }
+.hero__content { max-width: 900px; margin: 0 auto; }
+h1 { font-size: clamp(28px, 4vw, 44px); margin: 0 0 8px; }
+.sub { color: #6b7280; margin: 0 0 16px; }
+.cta { display: inline-flex; gap: 12px; }
+.features { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 16px; padding: 32px 24px; }
+.feature { text-align: left; display: grid; gap: 6px; }
+.feature mat-icon { color: var(--md-sys-color-primary); }
+.pricing-teaser { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); gap: 16px; padding: 8px 24px 40px; max-width: 900px; margin: 0 auto; }
+.plan { position: relative; text-align: center; padding-bottom: 16px; }
+.plan .price { font-size: 24px; font-weight: 700; margin: 8px 0 12px; }
+.popular { outline: 2px solid rgba(99,102,241,0.35); }
+.badge { position: absolute; right: 12px; top: 12px; background: #eef2ff; color: #3730a3; padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+.footer { display: flex; gap: 8px; justify-content: center; padding: 24px; color: #6b7280; }

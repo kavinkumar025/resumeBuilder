@@ -1,0 +1,11 @@
+<section class="page">
+  <h2>Rearrange / Edit Headings</h2>
+  <mat-card>
+    <div cdkDropList (cdkDropListDropped)="drop($event)" class="list">
+      <div class="item" *ngFor="let h of headings" cdkDrag>
+        <span class="handle" cdkDragHandle>≡</span>
+        {{ h }}
+      </div>
+    </div>
+  </mat-card>
+</section>

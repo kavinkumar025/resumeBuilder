@@ -1,0 +1,16 @@
+.resume { padding: 24px; }
+.header { display:flex; align-items:center; justify-content:space-between; margin-bottom: 12px; gap: 8px; }
+.tools button mat-icon { margin-right: 6px; }
+.resume-grid { display:grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 960px) { .resume-grid { grid-template-columns: 1.1fr .9fr; align-items: start; } }
+.editor { padding: 8px 16px; }
+.form { display:grid; gap: 12px; }
+.full { width: 100%; }
+.preview { position: sticky; top: 88px; }
+.preview-inner { display:grid; gap: 10px; }
+.name { font-size: 20px; font-weight: 700; }
+.summary { color: var(--text); }
+.summary.placeholder { color: var(--text-muted); }
+.skills { display:flex; flex-wrap: wrap; gap: 8px; }
+.chip { padding: 4px 10px; border-radius: 999px; border:1px solid var(--border); background: var(--surface-2); font-size: 12px; }
+.muted { color: var(--text-muted); font-size: 14px; }

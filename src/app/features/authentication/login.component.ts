@@ -13,39 +13,8 @@ import { AuthService } from '../../core/services/auth.service';
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSnackBarModule],
-  template: `
-    <div class="page-center">
-      <mat-card class="elevated-card">
-        <div class="header">
-          <h2 class="title">Welcome back</h2>
-          <p class="subtitle">Sign in to continue building your AI-powered resume</p>
-        </div>
-        <form class="gap-16" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-          <mat-form-field appearance="outline" class="full">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" formControlName="email" required />
-          </mat-form-field>
-          <mat-form-field appearance="outline" class="full">
-            <mat-label>Password</mat-label>
-            <input matInput type="password" formControlName="password" required />
-          </mat-form-field>
-          <div class="actions">
-            <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
-            <button mat-stroked-button type="button" (click)="loginWithGoogle()">
-              <span class="material-icons" style="font-size:18px;vertical-align:middle;margin-right:6px">login</span>
-              Login with Google
-            </button>
-          </div>
-        </form>
-      </mat-card>
-    </div>
-  `,
-  styles: [`
-    .header { text-align: center; padding: 8px 16px 4px; }
-    .title { margin: 8px 0 4px; font-weight: 700; }
-    .subtitle { margin: 0 0 12px; color: #6b7280; }
-    .actions { display: flex; gap: 12px; align-items: center; }
-  `]
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
   form!: FormGroup;

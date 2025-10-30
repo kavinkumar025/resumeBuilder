@@ -12,19 +12,8 @@ import { UserService } from '../../core/services/user.service';
   selector: 'app-user-info-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSnackBarModule],
-  template: `
-    <mat-card>
-      <h1>Profile</h1>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <mat-form-field class="full" appearance="outline"><mat-label>Name</mat-label><input matInput formControlName="name" /></mat-form-field>
-        <mat-form-field class="full" appearance="outline"><mat-label>Phone</mat-label><input matInput formControlName="phone" /></mat-form-field>
-        <mat-form-field class="full" appearance="outline"><mat-label>Location</mat-label><input matInput formControlName="location" /></mat-form-field>
-        <mat-form-field class="full" appearance="outline"><mat-label>Summary</mat-label><textarea matInput rows="4" formControlName="summary"></textarea></mat-form-field>
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
-      </form>
-    </mat-card>
-  `,
-  styles: [`.full{width:100%;max-width:640px;display:block}`]
+  templateUrl: './user-info-form.component.html',
+  styleUrls: ['./user-info-form.component.scss']
 })
 export class UserInfoFormComponent {
   form!: FormGroup;

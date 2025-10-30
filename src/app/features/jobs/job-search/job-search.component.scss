@@ -1,0 +1,6 @@
+.job-search { padding: 24px; }
+.search-card { padding: 12px 16px; }
+.title { display:flex; align-items:center; gap: 8px; margin-bottom: 8px; }
+.grid { display:grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 720px) { .grid { grid-template-columns: 1fr 1fr auto; align-items: center; } }
+.submit mat-icon { margin-right: 6px; }

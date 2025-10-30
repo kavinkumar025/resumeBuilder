@@ -1,0 +1,9 @@
+<section class="page dashboard">
+  <h2>Notifications</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let n of items">
+      <div matListItemTitle>{{ n.title }}</div>
+      <div matListItemLine>{{ n.time }}</div>
+    </mat-list-item>
+  </mat-list>
+</section>

@@ -1,0 +1,9 @@
+<section class="page">
+  <h2>Add More Section</h2>
+  <mat-card class="panel">
+    <div class="row" *ngFor="let k of keys">
+      <div class="label">{{ k | titlecase }}</div>
+      <mat-slide-toggle [checked]="sections[k]" (change)="toggle(k, $event.checked)"></mat-slide-toggle>
+    </div>
+  </mat-card>
+</section>

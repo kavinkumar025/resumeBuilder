@@ -1,0 +1,45 @@
+<section class="auth-shell">
+  <aside class="auth-hero" aria-hidden="true">
+    <div class="brand">
+      <div class="logo-circle">AI</div>
+      <h1>AI Resume Builder</h1>
+      <p>Turn your experience into a polished, job‑winning resume—fast.</p>
+    </div>
+
+    <ul class="benefits">
+      <li><span class="material-icons">bolt</span> Smart AI suggestions</li>
+      <li><span class="material-icons">auto_awesome</span> Beautiful templates</li>
+      <li><span class="material-icons">lock</span> Secure & private</li>
+    </ul>
+
+    <div class="decor decor-1"></div>
+    <div class="decor decor-2"></div>
+  </aside>
+
+  <mat-card class="auth-card">
+    <header class="header">
+      <h2 class="title">Welcome back</h2>
+      <p class="subtitle">Sign in to continue building your AI‑powered resume</p>
+    </header>
+
+    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" formControlName="password" required />
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Login</button>
+        <button mat-stroked-button type="button" class="google-btn" (click)="loginWithGoogle()">
+          <span class="material-icons">login</span>
+          Login with Google
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</section>

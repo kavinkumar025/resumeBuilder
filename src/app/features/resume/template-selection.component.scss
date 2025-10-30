@@ -1,0 +1,32 @@
+.page {
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+}
+
+.tpl {
+  cursor: pointer;
+  .thumb {
+    height: 160px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    display: grid;
+    place-items: center;
+    color: #6b7280;
+    position: relative;
+    .badge { position: absolute; right: 8px; top: 8px; background: #3b82f6; color: #fff; width: 28px; height: 28px; border-radius: 50%; display:grid; place-items:center; font-weight: 700; font-size: 12px; }
+  }
+  .meta { h3 { margin: 4px 0; font-size: 16px; } p { color:#6b7280; font-size: 13px; } }
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.tabs { margin-bottom: 12px; }

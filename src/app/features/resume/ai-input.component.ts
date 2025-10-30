@@ -13,17 +13,8 @@ import { ResumeStateService } from '../../core/services/resume-state.service';
   selector: 'app-ai-input',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule],
-  template: `
-    <mat-card>
-      <h1>AI Resume Input</h1>
-      <form [formGroup]="form" (ngSubmit)="generate()">
-        <mat-form-field class="full" appearance="outline"><mat-label>Target Role</mat-label><input matInput formControlName="role" /></mat-form-field>
-        <mat-form-field class="full" appearance="outline"><mat-label>Summary</mat-label><textarea matInput rows="4" formControlName="summary"></textarea></mat-form-field>
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Generate</button>
-      </form>
-    </mat-card>
-  `,
-  styles: [`.full{width:100%;max-width:640px;display:block}`]
+  templateUrl: './ai-input.component.html',
+  styleUrls: ['./ai-input.component.scss']
 })
 export class AiInputComponent {
   form!: FormGroup;

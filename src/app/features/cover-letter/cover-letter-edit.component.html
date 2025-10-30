@@ -1,0 +1,15 @@
+<section class="page cover-letter">
+  <h2>Edit Cover Letter</h2>
+  <mat-card>
+    <form [formGroup]="form" class="gap-16">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Body</mat-label>
+        <textarea rows="12" matInput formControlName="body"></textarea>
+      </mat-form-field>
+      <div class="actions">
+        <button mat-stroked-button color="primary">Save Draft</button>
+        <button mat-raised-button color="primary">Download PDF</button>
+      </div>
+    </form>
+  </mat-card>
+</section>

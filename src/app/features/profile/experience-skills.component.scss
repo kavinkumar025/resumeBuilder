@@ -1,0 +1,15 @@
+.full {
+  width: 100%;
+  max-width: 640px;
+  display: block;
+}
+
+.block {
+  margin-bottom: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}

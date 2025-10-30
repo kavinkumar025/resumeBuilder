@@ -1,0 +1,16 @@
+.app-footer {
+  margin-top: 24px;
+  padding: 16px 0 24px;
+  border-top: 1px solid var(--border);
+  background: color-mix(in oklab, var(--surface), transparent 10%);
+}
+.row { display: grid; gap: 12px; align-items: center; }
+@media (min-width: 800px) {
+  .row { grid-template-columns: 1fr auto 1fr; }
+}
+.brand { display:flex; align-items:center; gap: 10px; }
+.logo { display:grid; place-items:center; width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: var(--primary-contrast); font-weight: 800; }
+.name { font-weight: 700; }
+.links { display:flex; gap: 14px; justify-content: center; }
+.links a { color: var(--text-muted); }
+.copy { text-align: right; color: var(--text-muted); font-size: 14px; }

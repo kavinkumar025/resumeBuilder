@@ -5,15 +5,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-save-draft-modal',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div class="modal">
-      <h2>Save Changes?</h2>
-      <p>Do you want to save your edits as a draft?</p>
-      <button (click)="save.emit()">Save Draft</button>
-      <button (click)="cancel.emit()">Cancel</button>
-    </div>
-  `,
-  styles: [`.modal { padding: 16px; background: #fff; border-radius: 8px; }`]
+  templateUrl: './save-draft.modal.html',
+  styleUrls: ['./save-draft.modal.scss']
 })
 export class SaveDraftModalComponent {
   @Output() save = new EventEmitter<void>();

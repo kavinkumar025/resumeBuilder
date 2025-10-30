@@ -1,0 +1,42 @@
+<section class="hero">
+  <div class="hero__content">
+    <h1>Build ATS‑friendly resumes in minutes</h1>
+    <p class="sub">AI resume builder, cover letters, and job tracking — all in one place.</p>
+    <div class="cta">
+      <a mat-raised-button color="primary" routerLink="/resume/input">Create Resume</a>
+      <a mat-stroked-button routerLink="/pricing">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <mat-card class="feature" *ngFor="let f of featureCards">
+    <mat-icon>{{ f.icon }}</mat-icon>
+    <h3>{{ f.title }}</h3>
+    <p>{{ f.desc }}</p>
+  </mat-card>
+</section>
+
+<section class="pricing-teaser">
+  <mat-card class="plan">
+    <h3>Free</h3>
+    <p>Basic template • PDF export</p>
+    <div class="price">₹0</div>
+    <button mat-stroked-button routerLink="/pricing">Get Started</button>
+  </mat-card>
+  <mat-card class="plan popular" appearance="outlined">
+    <div class="badge">Popular</div>
+    <h3>Premium</h3>
+    <p>All templates • AI cover letters • Job match</p>
+    <div class="price">₹499/yr</div>
+    <button mat-raised-button color="primary" routerLink="/pricing">Upgrade</button>
+  </mat-card>
+</section>
+
+<section class="footer">
+  <a routerLink="/help">Help</a>
+  <span>•</span>
+  <a href="#" target="_blank">Terms</a>
+  <span>•</span>
+  <a href="#" target="_blank">Privacy</a>
+</section>

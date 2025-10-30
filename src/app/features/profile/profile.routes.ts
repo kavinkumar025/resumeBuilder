@@ -4,7 +4,12 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'info'
+    redirectTo: 'choose'
+  },
+  {
+    path: 'choose',
+    loadComponent: () => import('./choose-profile.component').then(m => m.ChooseProfileComponent),
+    title: 'Choose Profile'
   },
   {
     path: 'info',
@@ -15,5 +20,15 @@ export const routes: Routes = [
     path: 'experience',
     loadComponent: () => import('./experience-skills.component').then(m => m.ExperienceSkillsComponent),
     title: 'Experience & Skills'
+  },
+  {
+    path: 'sections',
+    loadComponent: () => import('./sections-manager.component').then(m => m.SectionsManagerComponent),
+    title: 'Sections'
+  },
+  {
+    path: 'reorder',
+    loadComponent: () => import('./reorder-headings.component').then(m => m.ReorderHeadingsComponent),
+    title: 'Rearrange Headings'
   }
 ];

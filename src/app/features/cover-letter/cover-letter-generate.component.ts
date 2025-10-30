@@ -10,20 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-cover-letter-generate',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule],
-  template: `
-    <div class="page-center">
-      <mat-card class="elevated-card">
-        <h2>Generate Cover Letter</h2>
-        <form [formGroup]="form" class="gap-16" (ngSubmit)="generate()">
-          <mat-form-field appearance="outline" class="full"><mat-label>Job title</mat-label><input matInput formControlName="title" /></mat-form-field>
-          <mat-form-field appearance="outline" class="full"><mat-label>Company</mat-label><input matInput formControlName="company" /></mat-form-field>
-          <mat-form-field appearance="outline" class="full"><mat-label>Job description</mat-label><textarea rows="5" matInput formControlName="jd"></textarea></mat-form-field>
-          <button mat-raised-button color="primary" [disabled]="form.invalid">Generate</button>
-        </form>
-      </mat-card>
-    </div>
-  `,
-  styles: [``]
+  templateUrl: './cover-letter-generate.component.html',
+  styleUrls: ['./cover-letter-generate.component.scss']
 })
 export class CoverLetterGenerateComponent {
   form!: FormGroup;

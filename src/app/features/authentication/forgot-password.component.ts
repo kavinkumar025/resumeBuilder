@@ -11,19 +11,8 @@ import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
   selector: 'app-forgot-password',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatSnackBarModule],
-  template: `
-    <mat-card>
-      <h1>Reset Password</h1>
-      <form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
-        <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email</mat-label>
-          <input matInput type="email" formControlName="email" required />
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Send reset link</button>
-      </form>
-    </mat-card>
-  `,
-  styles: [`.full-width{width:100%;max-width:420px;display:block}`]
+  templateUrl: './forgot-password.component.html',
+  styleUrls: ['./forgot-password.component.scss']
 })
 export class ForgotPasswordComponent {
   form!: FormGroup;

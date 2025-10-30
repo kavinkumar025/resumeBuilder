@@ -1,0 +1,27 @@
+<div class="page-center">
+  <mat-card class="elevated-card">
+    <h2>Help & Support</h2>
+    <p>Check the FAQs or send us a message. We usually reply within 24 hours.</p>
+
+    <mat-accordion class="faq">
+      <mat-expansion-panel *ngFor="let q of faqs">
+        <mat-expansion-panel-header>
+          <span>{{ q.q }}</span>
+        </mat-expansion-panel-header>
+        <p>{{ q.a }}</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+    <form [formGroup]="form" class="gap-16" (ngSubmit)="submit()">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Your email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Message</mat-label>
+        <textarea matInput rows="4" formControlName="message" required></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" [disabled]="form.invalid">Send</button>
+    </form>
+  </mat-card>
+</div>

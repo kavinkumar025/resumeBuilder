@@ -9,16 +9,8 @@ import { ResumeStateService } from '../../core/services/resume-state.service';
   selector: 'app-ai-preview',
   standalone: true,
   imports: [CommonModule, MatCardModule, MatButtonModule],
-  template: `
-    <mat-card>
-      <h1>AI Resume Preview</h1>
-      <pre style="white-space:pre-wrap">{{ content }}</pre>
-      <div>
-        <button mat-stroked-button color="primary" (click)="edit()">Edit</button>
-        <button mat-raised-button color="accent" (click)="download()">Download PDF</button>
-      </div>
-    </mat-card>
-  `
+  templateUrl: './ai-preview.component.html',
+  styleUrls: ['./ai-preview.component.scss']
 })
 export class AiPreviewComponent {
   content = '';

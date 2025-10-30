@@ -1,0 +1,9 @@
+<header class="page-header container">
+  <div class="titles">
+    <h2 class="title">{{ title }}</h2>
+    <p class="subtitle" *ngIf="subtitle">{{ subtitle }}</p>
+  </div>
+  <div class="actions">
+    <ng-content select="[actions]"></ng-content>
+  </div>
+</header>

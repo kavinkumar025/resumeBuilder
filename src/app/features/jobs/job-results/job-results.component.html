@@ -1,0 +1,8 @@
+<h1>Job Results</h1>
+<div class="grid">
+  <mat-card *ngFor="let job of jobs" class="card">
+    <mat-card-title>{{ job.title }}</mat-card-title>
+    <mat-card-subtitle>{{ job.company }} — {{ job.location }}</mat-card-subtitle>
+    <button mat-button color="primary" (click)="open(job)">View</button>
+  </mat-card>
+</div>

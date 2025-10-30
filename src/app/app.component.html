@@ -1,0 +1,55 @@
+<mat-sidenav-container class="app-container">
+  <mat-sidenav #sidenav
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)"
+  >
+    <div class="sidebar-header">Menu</div>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/dashboard" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a mat-list-item routerLink="/resume/input" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>description</mat-icon>
+        <span>Resume</span>
+      </a>
+      <a mat-list-item routerLink="/jobs/search" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>work</mat-icon>
+        <span>Jobs</span>
+      </a>
+      <a mat-list-item routerLink="/pricing" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>payments</mat-icon>
+        <span>Pricing</span>
+      </a>
+      <a mat-list-item routerLink="/cover-letter/generate" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>auto_awesome</mat-icon>
+        <span>Cover Letter</span>
+      </a>
+      <a mat-list-item routerLink="/profile/info" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </a>
+      <a mat-list-item routerLink="/admin/login" routerLinkActive="active" (click)="closeIfHandset(sidenav)">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Admin</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button aria-label="Open menu" (click)="sidenav.toggle()" *ngIf="(isHandset$ | async)">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="brand">AI Resume Builder</span>
+      <span class="spacer"></span>
+      <button mat-icon-button aria-label="Toggle theme" (click)="toggleTheme()">
+        <mat-icon>{{ (theme.theme$ | async) === 'dark' ? 'dark_mode' : 'light_mode' }}</mat-icon>
+      </button>
+      <a mat-stroked-button routerLink="/login">Login</a>
+    </mat-toolbar>
+    <div class="content container">
+      <router-outlet />
+    </div>
+    <app-footer />
+  </mat-sidenav-content>
+</mat-sidenav-container>

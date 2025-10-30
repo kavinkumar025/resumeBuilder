@@ -1,0 +1,39 @@
+:host { display: block; height: 100vh; }
+.app-container { height: 100%; background: var(--bg); }
+.content { padding: 16px; }
+.spacer { flex: 1 1 auto; }
+a { text-decoration: none; color: inherit; }
+.brand { font-weight: 800; letter-spacing: .2px; }
+
+/* Toolbar styling */
+mat-toolbar {
+  position: sticky; top: 0; z-index: 10;
+  background: color-mix(in oklab, var(--surface), transparent 10%);
+  backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Sidebar styling */
+mat-sidenav {
+  width: 260px;
+  background: linear-gradient(180deg, color-mix(in oklab, var(--surface), transparent 0%), color-mix(in oklab, var(--surface-2), transparent 0%));
+  border-right: 1px solid var(--border);
+}
+.sidebar-header {
+  padding: 18px 16px; font-weight: 800; letter-spacing: .3px;
+  color: var(--text);
+}
+.mat-mdc-nav-list { padding: 8px; }
+.mat-mdc-list-item.mdc-list-item {
+  border-radius: 10px; margin: 2px 4px; padding-inline: 10px;
+}
+.mat-mdc-list-item.mdc-list-item .mdc-list-item__content { display: flex; align-items: center; gap: 12px; }
+.mat-mdc-list-item.mdc-list-item:hover { background: color-mix(in oklab, var(--primary), transparent 92%); }
+a.active.mat-mdc-list-item.mdc-list-item { background: color-mix(in oklab, var(--primary), transparent 88%); color: var(--text); }
+a.active .mat-icon { color: var(--primary); }
+
+/* Hide chrome (sidebar + header) on auth pages by detecting the auth shell in outlet */
+mat-sidenav-container:has(.auth-shell) mat-sidenav,
+mat-sidenav-container:has(.auth-shell) mat-toolbar { display: none !important; }
+mat-sidenav-container:has(.auth-shell) .content { padding: 0; }
+mat-sidenav-container:has(.auth-shell) app-footer { display: none; }

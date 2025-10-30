@@ -1,0 +1,27 @@
+<header class="topbar">
+  <button class="back" mat-icon-button routerLink="/resume/templates"><mat-icon>arrow_back</mat-icon></button>
+  <h1>Template</h1>
+</header>
+
+<div class="colors">
+  <button *ngFor="let c of palette" class="swatch" [style.--c]="c" (click)="pickColor(c)"></button>
+</div>
+
+<section class="preview-wrap">
+  <div class="preview-card" [style.borderTopColor]="accent">
+    <div class="page-thumb">
+      <span class="zoom">Zoom</span>
+    </div>
+  </div>
+</section>
+
+<div class="actions">
+  <button class="cta" mat-raised-button color="primary" (click)="download()">Download</button>
+</div>
+
+<footer class="toolbar">
+  <button mat-icon-button aria-label="Print"><mat-icon>print</mat-icon></button>
+  <button mat-icon-button aria-label="Download" (click)="download()"><mat-icon>download</mat-icon></button>
+  <button mat-icon-button aria-label="Settings"><mat-icon>settings</mat-icon></button>
+  <button mat-icon-button aria-label="Text"><mat-icon>title</mat-icon></button>
+</footer>

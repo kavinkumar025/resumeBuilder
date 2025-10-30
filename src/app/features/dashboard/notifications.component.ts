@@ -6,18 +6,8 @@ import { MatListModule } from '@angular/material/list';
   selector: 'app-notifications',
   standalone: true,
   imports: [CommonModule, MatListModule],
-  template: `
-    <section class="page dashboard">
-      <h2>Notifications</h2>
-      <mat-list>
-        <mat-list-item *ngFor="let n of items">
-          <div matListItemTitle>{{ n.title }}</div>
-          <div matListItemLine>{{ n.time }}</div>
-        </mat-list-item>
-      </mat-list>
-    </section>
-  `,
-  styles: [`.page{padding:24px}`]
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.scss']
 })
 export class NotificationsComponent {
   items = [

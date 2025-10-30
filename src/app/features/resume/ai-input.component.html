@@ -1,0 +1,8 @@
+<mat-card>
+  <h1>AI Resume Input</h1>
+  <form [formGroup]="form" (ngSubmit)="generate()">
+    <mat-form-field class="full" appearance="outline"><mat-label>Target Role</mat-label><input matInput formControlName="role" /></mat-form-field>
+    <mat-form-field class="full" appearance="outline"><mat-label>Summary</mat-label><textarea matInput rows="4" formControlName="summary"></textarea></mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Generate</button>
+  </form>
+</mat-card>

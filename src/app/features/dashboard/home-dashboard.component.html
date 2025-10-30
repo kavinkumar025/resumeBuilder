@@ -1,0 +1,55 @@
+<section class="dashboard container">
+  <app-page-header title="Welcome back">
+    <div actions>
+      <a mat-stroked-button color="primary" routerLink="/resume/input">
+        <mat-icon>add</mat-icon>
+        New Resume
+      </a>
+    </div>
+  </app-page-header>
+
+  <div class="stats">
+    <mat-card class="stat">
+      <div class="icon"><mat-icon>article</mat-icon></div>
+      <div class="label">Resumes</div>
+      <div class="value">2</div>
+    </mat-card>
+    <mat-card class="stat">
+      <div class="icon"><mat-icon>work</mat-icon></div>
+      <div class="label">Jobs Applied</div>
+      <div class="value">5</div>
+    </mat-card>
+    <mat-card class="stat">
+      <div class="icon"><mat-icon>workspace_premium</mat-icon></div>
+      <div class="label">Plan</div>
+      <div class="value">Free</div>
+    </mat-card>
+  </div>
+
+  <div class="quick">
+    <mat-card class="action">
+      <div class="action__header">
+        <mat-icon>auto_awesome</mat-icon>
+        <h3>Create Resume</h3>
+      </div>
+      <p>Start with AI to craft a strong summary and bullets.</p>
+      <a mat-raised-button color="primary" routerLink="/resume/input">Open Builder</a>
+    </mat-card>
+    <mat-card class="action">
+      <div class="action__header">
+        <mat-icon>mail</mat-icon>
+        <h3>AI Cover Letter</h3>
+      </div>
+      <p>Generate a personalized letter in seconds.</p>
+      <a mat-stroked-button routerLink="/cover-letter/generate">Generate</a>
+    </mat-card>
+    <mat-card class="action">
+      <div class="action__header">
+        <mat-icon>timeline</mat-icon>
+        <h3>Job Tracker</h3>
+      </div>
+      <p>Stay on top of applications and interviews.</p>
+      <a mat-stroked-button routerLink="/jobs/tracker">Open Tracker</a>
+    </mat-card>
+  </div>
+</section>

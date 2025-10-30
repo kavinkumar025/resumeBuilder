@@ -1,0 +1,19 @@
+.page {
+  padding: 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.thumb {
+  height: 140px;
+  background: #f3f4f6;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  display: grid;
+  place-items: center;
+  color: #6b7280;
+}

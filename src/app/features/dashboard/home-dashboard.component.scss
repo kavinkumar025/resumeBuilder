@@ -1,0 +1,11 @@
+.dashboard { padding: 24px; }
+.header { display:flex; align-items:center; justify-content:space-between; margin-bottom: 12px; }
+.stats { display:grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 12px; }
+.stat { display:grid; grid-template-columns: 40px 1fr auto; align-items:center; gap: 8px; padding: 12px; }
+.stat .icon mat-icon { color: var(--md-sys-color-primary); }
+.stat .label { color: var(--text-muted); font-size: 14px; }
+.stat .value { font-size: 22px; font-weight: 700; }
+.quick { display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 12px; margin-top: 16px; }
+.action { display:grid; gap: 8px; }
+.action__header { display:flex; align-items:center; gap: 8px; }
+.action__header mat-icon { color: var(--md-sys-color-primary); }

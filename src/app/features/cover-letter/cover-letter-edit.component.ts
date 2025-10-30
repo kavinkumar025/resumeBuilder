@@ -10,21 +10,8 @@ import { MatButtonModule } from '@angular/material/button';
   selector: 'app-cover-letter-edit',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule],
-  template: `
-    <section class="page cover-letter">
-      <h2>Edit Cover Letter</h2>
-      <mat-card>
-        <form [formGroup]="form" class="gap-16">
-          <mat-form-field appearance="outline" class="full"><mat-label>Body</mat-label><textarea rows="12" matInput formControlName="body"></textarea></mat-form-field>
-          <div class="actions">
-            <button mat-stroked-button color="primary">Save Draft</button>
-            <button mat-raised-button color="primary">Download PDF</button>
-          </div>
-        </form>
-      </mat-card>
-    </section>
-  `,
-  styles: [`.page{padding:24px}.actions{display:flex;gap:8px;justify-content:flex-end}`]
+  templateUrl: './cover-letter-edit.component.html',
+  styleUrls: ['./cover-letter-edit.component.scss']
 })
 export class CoverLetterEditComponent {
   form!: FormGroup;

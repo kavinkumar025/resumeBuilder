@@ -1,0 +1,78 @@
+/* Layout */
+.auth-shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+}
+
+@media (min-width: 960px) {
+  .auth-shell { grid-template-columns: 1fr 1fr; }
+}
+
+/* Left hero */
+.auth-hero {
+  position: relative;
+  padding: clamp(24px, 6vw, 64px);
+  overflow: hidden;
+  background:
+    radial-gradient(1200px 600px at -10% -20%, color-mix(in oklab, var(--primary), transparent 75%), transparent 60%),
+    radial-gradient(800px 400px at 110% 120%, color-mix(in oklab, var(--primary), white 20%), transparent 60%),
+    linear-gradient(180deg, var(--bg-surface) 0%, var(--bg) 60%);
+  border-right: 1px solid var(--border);
+}
+
+.brand { max-width: 520px; }
+.brand h1 { font-size: clamp(26px, 3.2vw, 36px); margin: 12px 0 6px; }
+.brand p { color: var(--text-muted); margin: 0 0 14px; }
+
+.logo-circle {
+  width: 44px; height: 44px; display: grid; place-items: center;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-contrast);
+  font-weight: 800;
+  letter-spacing: .5px;
+  box-shadow: var(--shadow-md);
+}
+
+.benefits { display: grid; gap: 10px; margin-top: 20px; color: var(--text); }
+.benefits li { display: flex; align-items: center; gap: 10px; color: var(--text-muted); }
+.benefits .material-icons { font-size: 18px; color: var(--primary); }
+
+.decor { position: absolute; filter: blur(40px); opacity: .5; pointer-events: none; }
+.decor-1 { width: 240px; height: 240px; background: color-mix(in oklab, var(--primary), transparent 60%); top: -40px; right: -40px; border-radius: 50%; }
+.decor-2 { width: 180px; height: 180px; background: color-mix(in oklab, var(--primary), white 20%); bottom: -30px; left: -30px; border-radius: 50%; }
+
+/* Card */
+.auth-card {
+  margin: auto; /* centers on small screens */
+  width: min(520px, 92vw);
+  background: color-mix(in oklab, var(--surface), transparent 0%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: clamp(20px, 4.2vw, 28px);
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.header { text-align: center; }
+.title { margin: 6px 0 4px; font-weight: 800; letter-spacing: -.2px; }
+.subtitle { margin: 0 0 6px; color: var(--text-muted); }
+
+.form { display: grid; gap: 14px; }
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+@media (min-width: 600px) {
+  .actions { grid-template-columns: 1fr 1fr; }
+}
+
+.google-btn .material-icons { font-size: 18px; margin-right: 6px; }

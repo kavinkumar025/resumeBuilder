@@ -1,0 +1,10 @@
+<section class="page admin">
+  <h2>Templates</h2>
+  <div class="grid">
+    <mat-card *ngFor="let t of templates" class="tpl">
+      <div class="thumb">Preview</div>
+      <h3>{{ t.name }}</h3>
+      <button mat-stroked-button>Disable</button>
+    </mat-card>
+  </div>
+</section>
