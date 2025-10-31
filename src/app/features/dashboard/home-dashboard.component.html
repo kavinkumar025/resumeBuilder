@@ -1,55 +1,125 @@
 <section class="dashboard container">
-  <app-page-header title="Welcome back">
-    <div actions>
-      <a mat-stroked-button color="primary" routerLink="/resume/input">
-        <mat-icon>add</mat-icon>
+  <div class="dashboard__header">
+    <div class="welcome animate-slide-down">
+      <h1>Welcome back! 👋</h1>
+      <p class="welcome__subtitle">Ready to take the next step in your career?</p>
+    </div>
+    <div class="header__actions animate-slide-down">
+      <a mat-raised-button color="primary" routerLink="/resume/input" class="btn-gradient">
+        <mat-icon>add_circle</mat-icon>
         New Resume
       </a>
     </div>
-  </app-page-header>
+  </div>
 
-  <div class="stats">
-    <mat-card class="stat">
-      <div class="icon"><mat-icon>article</mat-icon></div>
-      <div class="label">Resumes</div>
-      <div class="value">2</div>
-    </mat-card>
-    <mat-card class="stat">
-      <div class="icon"><mat-icon>work</mat-icon></div>
-      <div class="label">Jobs Applied</div>
-      <div class="value">5</div>
-    </mat-card>
-    <mat-card class="stat">
-      <div class="icon"><mat-icon>workspace_premium</mat-icon></div>
-      <div class="label">Plan</div>
-      <div class="value">Free</div>
+  <div class="stats-grid animate-slide-up">
+    <mat-card class="stat-card card-interactive" *ngFor="let stat of stats; let i = index" [style.animation-delay.ms]="i * 100">
+      <div class="stat-card__icon" [class]="'stat-card__icon--' + stat.color">
+        <mat-icon>{{ stat.icon }}</mat-icon>
+      </div>
+      <div class="stat-card__content">
+        <div class="stat-card__label">{{ stat.label }}</div>
+        <div class="stat-card__value">{{ stat.value }}</div>
+        <div class="stat-card__change" *ngIf="stat.change">
+          <mat-icon>{{ stat.change > 0 ? 'trending_up' : 'trending_down' }}</mat-icon>
+          <span>{{ stat.change }}%</span>
+        </div>
+      </div>
     </mat-card>
   </div>
 
-  <div class="quick">
-    <mat-card class="action">
-      <div class="action__header">
-        <mat-icon>auto_awesome</mat-icon>
-        <h3>Create Resume</h3>
+  <div class="quick-actions">
+    <h2 class="section-title">Quick Actions</h2>
+    <div class="actions-grid">
+      <mat-card class="action-card card-interactive hover-lift">
+        <div class="action-card__icon">
+          <mat-icon>auto_awesome</mat-icon>
+        </div>
+        <div class="action-card__content">
+          <h3>Create Resume</h3>
+          <p>Start with AI to craft a strong summary and optimize your experience bullets.</p>
+        </div>
+        <a mat-raised-button color="primary" routerLink="/resume/input" class="action-card__btn">
+          <mat-icon>edit_note</mat-icon>
+          Open Builder
+        </a>
+      </mat-card>
+
+      <mat-card class="action-card card-interactive hover-lift">
+        <div class="action-card__icon action-card__icon--secondary">
+          <mat-icon>mail</mat-icon>
+        </div>
+        <div class="action-card__content">
+          <h3>AI Cover Letter</h3>
+          <p>Generate a personalized cover letter tailored to any job in seconds.</p>
+        </div>
+        <a mat-stroked-button routerLink="/cover-letter/generate" class="action-card__btn">
+          <mat-icon>auto_fix_high</mat-icon>
+          Generate
+        </a>
+      </mat-card>
+
+      <mat-card class="action-card card-interactive hover-lift">
+        <div class="action-card__icon action-card__icon--accent">
+          <mat-icon>timeline</mat-icon>
+        </div>
+        <div class="action-card__content">
+          <h3>Job Tracker</h3>
+          <p>Stay organized and on top of all your applications and interviews.</p>
+        </div>
+        <a mat-stroked-button routerLink="/jobs/tracker" class="action-card__btn">
+          <mat-icon>assessment</mat-icon>
+          Open Tracker
+        </a>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="recent-section">
+    <div class="section-header-row">
+      <h2 class="section-title">Recent Resumes</h2>
+      <a mat-button routerLink="/resume" class="view-all">
+        View All
+        <mat-icon>arrow_forward</mat-icon>
+      </a>
+    </div>
+    <div class="resumes-grid">
+      <mat-card class="resume-card card-interactive" *ngFor="let resume of recentResumes">
+        <div class="resume-card__preview">
+          <mat-icon>description</mat-icon>
+        </div>
+        <div class="resume-card__content">
+          <h4>{{ resume.title }}</h4>
+          <p class="resume-card__date">Last edited {{ resume.date }}</p>
+          <div class="resume-card__actions">
+            <button mat-icon-button title="Edit">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button title="Download">
+              <mat-icon>download</mat-icon>
+            </button>
+            <button mat-icon-button title="More">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+          </div>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="upgrade-banner glass animate-fade-in">
+    <div class="upgrade-banner__content">
+      <div class="upgrade-banner__icon">
+        <mat-icon>workspace_premium</mat-icon>
       </div>
-      <p>Start with AI to craft a strong summary and bullets.</p>
-      <a mat-raised-button color="primary" routerLink="/resume/input">Open Builder</a>
-    </mat-card>
-    <mat-card class="action">
-      <div class="action__header">
-        <mat-icon>mail</mat-icon>
-        <h3>AI Cover Letter</h3>
+      <div class="upgrade-banner__text">
+        <h3>Unlock Premium Features</h3>
+        <p>Get unlimited resumes, AI cover letters, and advanced ATS optimization</p>
       </div>
-      <p>Generate a personalized letter in seconds.</p>
-      <a mat-stroked-button routerLink="/cover-letter/generate">Generate</a>
-    </mat-card>
-    <mat-card class="action">
-      <div class="action__header">
-        <mat-icon>timeline</mat-icon>
-        <h3>Job Tracker</h3>
-      </div>
-      <p>Stay on top of applications and interviews.</p>
-      <a mat-stroked-button routerLink="/jobs/tracker">Open Tracker</a>
-    </mat-card>
+    </div>
+    <a mat-raised-button routerLink="/payment" class="upgrade-banner__btn">
+      <mat-icon>star</mat-icon>
+      Upgrade Now
+    </a>
   </div>
 </section>

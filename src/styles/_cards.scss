@@ -1,12 +1,142 @@
-/* Card primitives */
+/* Card primitives - Professional business standards */
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 16px;
+  padding: var(--space-6);
   box-shadow: var(--shadow-sm);
+  transition: all var(--transition-base);
+  position: relative;
+
+  &:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
 }
-.card:hover { box-shadow: var(--shadow-md); }
-.card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
-.card-title { font-size: var(--text-xl); font-weight: 700; }
-.card-subtitle { color: var(--text-muted); font-size: var(--text-sm); }
+
+/* Elevated card - Higher visual priority */
+.card-elevated {
+  box-shadow: var(--shadow-md);
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Interactive card - Subtle interaction */
+.card-interactive {
+  cursor: pointer;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+/* Featured card with primary border */
+.card-featured {
+  border: 2px solid var(--primary);
+  border-top: 4px solid var(--primary);
+  
+  &:hover {
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+/* Card with top accent */
+.card-accent {
+  border-top: 3px solid var(--primary);
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--border-light);
+}
+
+/* Card title */
+.card-title {
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  color: var(--text);
+  margin: 0;
+}
+
+/* Card subtitle */
+.card-subtitle {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  margin-top: var(--space-1);
+}
+
+/* Card body */
+.card-body {
+  padding: var(--space-4) 0;
+}
+
+/* Card footer */
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border-light);
+}
+
+/* Card image */
+.card-image {
+  width: calc(100% + var(--space-6) * 2);
+  margin: calc(var(--space-6) * -1) calc(var(--space-6) * -1) var(--space-4);
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  object-fit: cover;
+}
+
+/* Card icon - Professional style */
+.card-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: white;
+  margin-bottom: var(--space-3);
+  flex-shrink: 0;
+}
+
+/* Card grid layouts */
+.card-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.card-grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.card-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Compact card */
+.card-compact {
+  padding: var(--space-4);
+}
+
+/* Large card */
+.card-lg {
+  padding: var(--space-8);
+}

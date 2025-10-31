@@ -1,42 +1,141 @@
 <section class="hero">
-  <div class="hero__content">
-    <h1>Build ATS‑friendly resumes in minutes</h1>
-    <p class="sub">AI resume builder, cover letters, and job tracking — all in one place.</p>
-    <div class="cta">
-      <a mat-raised-button color="primary" routerLink="/resume/input">Create Resume</a>
-      <a mat-stroked-button routerLink="/pricing">View Pricing</a>
+  <div class="hero__bg">
+    <div class="hero__gradient"></div>
+    <div class="hero__shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
+  </div>
+  <div class="hero__content container">
+    <div class="hero__badge animate-slide-down">
+      <mat-icon>auto_awesome</mat-icon>
+      <span>AI-Powered Resume Builder</span>
+    </div>
+    <h1 class="animate-slide-up">Build ATS‑friendly resumes in <span class="text-gradient">minutes</span></h1>
+    <p class="hero__subtitle animate-slide-up">AI resume builder, cover letters, and job tracking — all in one place.</p>
+    <div class="hero__cta animate-scale-in">
+      <a mat-raised-button color="primary" routerLink="/resume/input" class="btn-hero">
+        <mat-icon>edit_note</mat-icon>
+        Create Resume
+      </a>
+      <a mat-stroked-button routerLink="/pricing" class="btn-secondary">
+        <mat-icon>workspace_premium</mat-icon>
+        View Pricing
+      </a>
+    </div>
+    <div class="hero__stats animate-fade-in">
+      <div class="stat-item">
+        <div class="stat-value">50K+</div>
+        <div class="stat-label">Resumes Created</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-value">95%</div>
+        <div class="stat-label">Success Rate</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-value">4.9★</div>
+        <div class="stat-label">User Rating</div>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="features">
-  <mat-card class="feature" *ngFor="let f of featureCards">
-    <mat-icon>{{ f.icon }}</mat-icon>
-    <h3>{{ f.title }}</h3>
-    <p>{{ f.desc }}</p>
-  </mat-card>
+<section class="features container">
+  <div class="section-header">
+    <h2>Everything you need to land your dream job</h2>
+    <p class="section-subtitle">Powerful features designed to help you stand out</p>
+  </div>
+  <div class="features-grid">
+    <mat-card class="feature card-interactive" *ngFor="let f of featureCards; let i = index" [style.animation-delay.ms]="i * 100">
+      <div class="feature__icon">
+        <mat-icon>{{ f.icon }}</mat-icon>
+      </div>
+      <h3>{{ f.title }}</h3>
+      <p>{{ f.desc }}</p>
+    </mat-card>
+  </div>
 </section>
 
-<section class="pricing-teaser">
-  <mat-card class="plan">
-    <h3>Free</h3>
-    <p>Basic template • PDF export</p>
-    <div class="price">₹0</div>
-    <button mat-stroked-button routerLink="/pricing">Get Started</button>
-  </mat-card>
-  <mat-card class="plan popular" appearance="outlined">
-    <div class="badge">Popular</div>
-    <h3>Premium</h3>
-    <p>All templates • AI cover letters • Job match</p>
-    <div class="price">₹499/yr</div>
-    <button mat-raised-button color="primary" routerLink="/pricing">Upgrade</button>
-  </mat-card>
+<section class="pricing-teaser container">
+  <div class="section-header">
+    <h2>Choose your plan</h2>
+    <p class="section-subtitle">Start free, upgrade when you're ready</p>
+  </div>
+  <div class="pricing-grid">
+    <mat-card class="plan card-interactive">
+      <div class="plan__header">
+        <h3>Free</h3>
+        <p class="plan__desc">Perfect for getting started</p>
+      </div>
+      <div class="plan__price">
+        <span class="amount">₹0</span>
+        <span class="period">/forever</span>
+      </div>
+      <ul class="plan__features">
+        <li><mat-icon>check_circle</mat-icon> Basic template</li>
+        <li><mat-icon>check_circle</mat-icon> PDF export</li>
+        <li><mat-icon>check_circle</mat-icon> Basic editing</li>
+      </ul>
+      <button mat-stroked-button routerLink="/pricing" class="plan__cta">Get Started</button>
+    </mat-card>
+    
+    <mat-card class="plan plan--popular card-interactive card-featured">
+      <div class="plan__badge">
+        <mat-icon>star</mat-icon>
+        <span>Popular</span>
+      </div>
+      <div class="plan__header">
+        <h3>Premium</h3>
+        <p class="plan__desc">Everything you need to succeed</p>
+      </div>
+      <div class="plan__price">
+        <span class="amount">₹499</span>
+        <span class="period">/year</span>
+      </div>
+      <ul class="plan__features">
+        <li><mat-icon>check_circle</mat-icon> All premium templates</li>
+        <li><mat-icon>check_circle</mat-icon> AI cover letters</li>
+        <li><mat-icon>check_circle</mat-icon> Job match analysis</li>
+        <li><mat-icon>check_circle</mat-icon> Priority support</li>
+      </ul>
+      <button mat-raised-button color="primary" routerLink="/pricing" class="plan__cta">Upgrade Now</button>
+    </mat-card>
+  </div>
 </section>
 
-<section class="footer">
-  <a routerLink="/help">Help</a>
-  <span>•</span>
-  <a href="#" target="_blank">Terms</a>
-  <span>•</span>
-  <a href="#" target="_blank">Privacy</a>
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card glass">
+      <h2>Ready to build your future?</h2>
+      <p>Join thousands of job seekers who landed their dream roles</p>
+      <a mat-raised-button color="primary" routerLink="/resume/input" class="btn-hero">
+        <mat-icon>rocket_launch</mat-icon>
+        Start Building Now
+      </a>
+    </div>
+  </div>
 </section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <h3>ResumeBuilder</h3>
+        <p>Build your future, one resume at a time.</p>
+      </div>
+      <div class="footer__links">
+        <a routerLink="/help">Help Center</a>
+        <span>•</span>
+        <a href="#" target="_blank">Terms</a>
+        <span>•</span>
+        <a href="#" target="_blank">Privacy</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>&copy; 2025 ResumeBuilder. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
