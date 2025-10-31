@@ -1,0 +1,17 @@
+<div class="tpl-preview" [class.compact]="compact">
+  <div class="page" [style.borderTop]="'6px solid ' + accent">
+    <div class="header" [style.background]="accent"></div>
+    <div class="line" *ngFor="let l of lines">{{ l | slice:0:30 }}</div>
+    <div class="line short" *ngIf="lines.length < 3"></div>
+  </div>
+  <ng-content></ng-content>
+</div>
+<div class="tpl-preview" [class.compact]="compact">
+  <div class="page">
+    <div class="header">Template {{ templateId }}</div>
+    <div class="line"></div>
+    <div class="line short"></div>
+    <div class="line"></div>
+    <div class="line"></div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<mat-card>
+  <h2>ATS Check</h2>
+  <p class="muted">Quick, on-device checks. Advanced checks will be available with Pro.</p>
+
+  <div class="score">
+    <div class="value">{{ score() }}</div>
+    <div class="label">Estimated ATS score</div>
+  </div>
+
+  <div *ngIf="warnings().length; else ok">
+    <h3>Suggestions</h3>
+    <mat-nav-list>
+      <a mat-list-item *ngFor="let w of warnings()">{{ w }}</a>
+    </mat-nav-list>
+  </div>
+  <ng-template #ok>
+    <p>No immediate issues detected.</p>
+  </ng-template>
+</mat-card>

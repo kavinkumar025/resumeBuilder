@@ -1,0 +1,6 @@
+.tpl-preview { display:grid; place-items:center; }
+.tpl-preview .page { width: 100%; aspect-ratio: 8.5/11; background: #f9fafb; border:1px solid #e5e7eb; border-radius: 8px; padding: 10px; display:grid; align-content: start; gap: 8px; }
+.tpl-preview .header { height: 14px; background: #dbeafe; border-radius: 4px; }
+.tpl-preview .line { height: 8px; background: #e5e7eb; border-radius: 4px; }
+.tpl-preview .line.short { width: 60%; }
+.tpl-preview.compact .page { aspect-ratio: 4/5; }

@@ -1,0 +1,5 @@
+.split { display: grid; grid-template-columns: var(--left) 6px 1fr; height: 100%; min-height: 480px; }
+.left { overflow: auto; }
+.right { overflow: auto; }
+.divider { cursor: col-resize; background: var(--border, #e5e7eb); }
+body.resizing, body.resizing * { cursor: col-resize !important; user-select: none; }

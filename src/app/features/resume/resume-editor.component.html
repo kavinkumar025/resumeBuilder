@@ -6,26 +6,84 @@
     </div>
   </app-page-header>
 
-  <div class="resume-grid">
-    <mat-card class="editor">
-      <form class="form" [formGroup]="form">
-        <mat-form-field appearance="outline" class="full"><mat-label>Headline</mat-label><input matInput formControlName="headline" /></mat-form-field>
-        <mat-form-field appearance="outline" class="full"><mat-label>Summary</mat-label><textarea rows="6" matInput formControlName="summary"></textarea></mat-form-field>
-        <mat-form-field appearance="outline" class="full"><mat-label>Skills (comma separated)</mat-label><input matInput formControlName="skills" /></mat-form-field>
-      </form>
-    </mat-card>
+  <app-split-pane [initial]="320" [minLeft]="260" [minRight]="520">
+    <div pane="left">
+      <app-side-panel>
+        <mat-tab-group mat-stretch-tabs>
+          <mat-tab label="Sections">
+            <div cdkDropList (cdkDropListDropped)="dropSection($event)">
+              <mat-nav-list>
+                <a mat-list-item *ngFor="let key of sectionsOrder; let i = index" cdkDrag>
+                  <mat-checkbox [checked]="sectionsMap[key]" (change)="toggleSection(key, $event.checked)">{{ key }}</mat-checkbox>
+                  <span class="drag-handle" cdkDragHandle><mat-icon>drag_indicator</mat-icon></span>
+                </a>
+              </mat-nav-list>
+            </div>
+          </mat-tab>
+          <mat-tab label="Templates">
+            <div class="panel-p">
+              <app-template-mini-picker></app-template-mini-picker>
+              <div style="text-align:center; margin-top:8px;">
+                <button mat-stroked-button color="primary" routerLink="/resume/templates">Open Gallery</button>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="ATS">
+            <app-ats-check></app-ats-check>
+          </mat-tab>
+        </mat-tab-group>
+      </app-side-panel>
+    </div>
+    <div pane="right">
+      <div class="resume-grid">
+        <mat-card class="editor">
+          <form class="form" [formGroup]="form">
+            <mat-form-field appearance="outline" class="full"><mat-label>Headline</mat-label><input matInput formControlName="headline" /></mat-form-field>
+            <div class="with-actions">
+              <mat-form-field appearance="outline" class="full">
+                <mat-label>Summary</mat-label>
+                <textarea rows="6" matInput formControlName="summary"></textarea>
+              </mat-form-field>
+              <div class="inline-actions">
+                <button mat-stroked-button color="primary" type="button" (click)="improveSummary()" [disabled]="isBusyImprove">{{ isBusyImprove ? 'Improving…' : 'Improve' }}</button>
+                <button mat-stroked-button color="primary" type="button" (click)="quantifySummary()" [disabled]="isBusyQuantify">{{ isBusyQuantify ? 'Quantifying…' : 'Quantify' }}</button>
+                <button mat-stroked-button color="primary" type="button" (click)="tailorSummary()" [disabled]="isBusyTailor">{{ isBusyTailor ? 'Tailoring…' : 'Tailor' }}</button>
+              </div>
+            </div>
+            <mat-form-field appearance="outline" class="full"><mat-label>Skills (comma separated)</mat-label><input matInput formControlName="skills" /></mat-form-field>
+            <mat-form-field appearance="outline" class="full"><mat-label>Target job description (paste here)</mat-label><textarea rows="4" matInput formControlName="jobDescription"></textarea></mat-form-field>
 
-    <mat-card class="preview">
-      <div class="preview-inner">
-        <h3 class="name">{{ form.value.headline || 'Your Headline' }}</h3>
-        <p class="summary" [class.placeholder]="!form.value.summary">{{ form.value.summary || 'Write a compelling summary to highlight your strengths and experience.' }}</p>
-        <div class="skills" *ngIf="(form.value.skills || '').length; else noSkills">
-          <span class="chip" *ngFor="let s of skillsArray">{{ s }}</span>
-        </div>
-        <ng-template #noSkills>
-          <div class="muted">Add a few skills separated by commas (e.g. Angular, TypeScript, Node.js)</div>
-        </ng-template>
+            <h3>Experience</h3>
+            <div class="exp-list">
+              <div class="exp" *ngFor="let exp of experience.controls; let i = index" [formGroupName]="i">
+                <div class="exp-head">
+                  <mat-form-field appearance="outline" class="half"><mat-label>Company</mat-label><input matInput formControlName="company" /></mat-form-field>
+                  <mat-form-field appearance="outline" class="half"><mat-label>Role</mat-label><input matInput formControlName="role" /></mat-form-field>
+                  <button mat-icon-button color="warn" type="button" (click)="removeExperience(i)" aria-label="Remove experience"><mat-icon>delete</mat-icon></button>
+                </div>
+                <div cdkDropList (cdkDropListDropped)="dropBullet(i, $event)" class="bullets">
+                  <div class="bullet" *ngFor="let _ of bulletsAt(i).controls; let j = index" cdkDrag>
+                    <mat-form-field appearance="outline" class="full"><mat-label>Bullet</mat-label><input matInput [formControl]="bulletCtrl(i, j)" /></mat-form-field>
+                    <div class="inline-actions">
+                      <button mat-stroked-button type="button" (click)="improveBullet(i, j)">Improve</button>
+                      <button mat-stroked-button type="button" (click)="quantifyBullet(i, j)">Quantify</button>
+                      <button mat-stroked-button type="button" (click)="tailorBullet(i, j)">Tailor</button>
+                      <button mat-icon-button color="warn" type="button" (click)="removeBullet(i, j)"><mat-icon>delete</mat-icon></button>
+                      <span class="drag-handle" cdkDragHandle><mat-icon>drag_indicator</mat-icon></span>
+                    </div>
+                  </div>
+                </div>
+                <button mat-stroked-button type="button" (click)="addBullet(i)"><mat-icon>add</mat-icon> Add bullet</button>
+              </div>
+              <button mat-raised-button color="primary" type="button" (click)="addExperience()"><mat-icon>add</mat-icon> Add experience</button>
+            </div>
+          </form>
+        </mat-card>
+
+        <mat-card class="preview">
+          <app-template-renderer></app-template-renderer>
+        </mat-card>
       </div>
-    </mat-card>
-  </div>
+    </div>
+  </app-split-pane>
 </section>

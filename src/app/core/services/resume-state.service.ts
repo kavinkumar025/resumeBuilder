@@ -20,18 +20,23 @@ export class ResumeStateService {
   setAccentColor(hex: string) { this._accentColor$.next(hex); }
   getAccentColor() { return this._accentColor$.value; }
 
+  // Job description (for tailoring/ATS)
+  private _jobDescription$ = new BehaviorSubject<string>('');
+  readonly jobDescription$ = this._jobDescription$.asObservable();
+  setJobDescription(text: string) { this._jobDescription$.next(text); }
+  getJobDescription() { return this._jobDescription$.value; }
+
   // Profile section toggles
   private _sections$ = new BehaviorSubject<Record<string, boolean>>({
-    interests: true,
-    achievements: true,
-    activities: true,
-    publications: true,
-    languages: true,
-    additionalInfo: false,
+    summary: true,
+    experience: true,
+    education: true,
+    skills: true,
     projects: true,
-    reference: true,
-    signature: false,
-    coverLetter: true
+    certifications: false,
+    languages: true,
+    achievements: false,
+    interests: false
   });
   readonly sections$ = this._sections$.asObservable();
   toggleSection(key: string, enabled: boolean) {
@@ -39,4 +44,30 @@ export class ResumeStateService {
     this._sections$.next(next);
   }
   getSections() { return this._sections$.value; }
+
+  // Sections order (for left navigation / rendering order)
+  private _sectionsOrder$ = new BehaviorSubject<string[]>([
+    'summary','experience','education','skills','projects','certifications','languages','achievements','interests'
+  ]);
+  readonly sectionsOrder$ = this._sectionsOrder$.asObservable();
+  getSectionsOrder() { return this._sectionsOrder$.value; }
+  setSectionsOrder(order: string[]) { this._sectionsOrder$.next(order); }
+
+  // Minimal draft for renderer/export (not persisted)
+  private _draft$ = new BehaviorSubject<any>({
+    id: Math.random().toString(36).slice(2),
+    title: '',
+    summary: '',
+    experience: [],
+    education: [],
+    skills: [],
+    certifications: [],
+    projects: []
+  });
+  readonly draft$ = this._draft$.asObservable();
+  setDraft(partial: any){
+    const curr = this._draft$.value || {};
+    this._draft$.next({ ...curr, ...partial });
+  }
+  getDraft(){ return this._draft$.value; }
 }

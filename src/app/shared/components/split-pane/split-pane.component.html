@@ -1,0 +1,9 @@
+<div class="split" [style.--left.px]="leftWidth">
+  <div class="left">
+    <ng-content select="[pane=left]"></ng-content>
+  </div>
+  <div class="divider" (mousedown)="startDrag($event)" title="Drag to resize"></div>
+  <div class="right">
+    <ng-content select="[pane=right]"></ng-content>
+  </div>
+</div>

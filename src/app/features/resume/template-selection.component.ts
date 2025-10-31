@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
+import { TemplatePreviewComponent } from '@shared/components/template-preview/template-preview.component';
 import { Router } from '@angular/router';
 import { ResumeStateService } from '@core/services/resume-state.service';
 
 @Component({
   selector: 'app-template-selection',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatTabsModule],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatTabsModule, TemplatePreviewComponent],
   templateUrl: './template-selection.component.html',
   styleUrls: ['./template-selection.component.scss']
 })

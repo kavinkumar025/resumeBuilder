@@ -1,0 +1,7 @@
+<div class="mini-grid">
+  <button class="mini-card" *ngFor="let t of templates" (click)="pick(t.id)" [class.active]="t.id === selected" type="button">
+    <app-template-preview [templateId]="t.id" [compact]="true"></app-template-preview>
+    <span class="label">{{ t.name }}</span>
+  </button>
+  <div class="more">More templates… open Gallery</div>
+</div>

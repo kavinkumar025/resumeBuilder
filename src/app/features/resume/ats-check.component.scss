@@ -1,0 +1,4 @@
+.muted { color: var(--text-muted, #6b7280); }
+.score { display: flex; align-items: baseline; gap: 12px; margin: 8px 0 16px; }
+.score .value { font-size: 32px; font-weight: 700; }
+.score .label { font-size: 12px; color: var(--text-muted, #6b7280); }
